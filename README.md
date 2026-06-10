@@ -1,117 +1,213 @@
-<img width="899" height="1599" alt="84eb5af1-af18-4366-9f8e-09b30d5b5913-1_all_22347" src="https://github.com/user-attachments/assets/db814b64-d55b-47fa-93ed-d86c94731d9a" />
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Brijesh ❤️ Divya</title>
+<title>Love Reel 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
 overflow:hidden;
-font-family:cursive;
-background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+background:black;
 color:white;
+font-family:Poppins;
+}
+
+/* FULL VERTICAL REEL */
+.container{
+position:relative;
+width:100vw;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
 text-align:center;
 }
 
-h1{
-font-size:45px;
-margin-top:15px;
-text-shadow:0 0 20px white;
-}
-
-.slider{
-width:100%;
-height:70vh;
-position:relative;
-overflow:hidden;
-margin-top:10px;
-}
-
-.slider img{
+/* DARK CINEMA OVERLAY */
+.overlay{
+position:absolute;
 width:100%;
 height:100%;
-object-fit:cover;
-position:absolute;
-opacity:0;
-animation:fade 18s infinite;
+background: radial-gradient(circle at center, rgba(255,0,100,0.25), black 70%);
+animation: glow 3s infinite alternate;
 }
 
-.slider img:nth-child(1){animation-delay:0s;}
-.slider img:nth-child(2){animation-delay:3s;}
-.slider img:nth-child(3){animation-delay:6s;}
-.slider img:nth-child(4){animation-delay:9s;}
-.slider img:nth-child(5){animation-delay:12s;}
-.slider img:nth-child(6){animation-delay:15s;}
-
-@keyframes fade{
-0%{opacity:0;}
-10%{opacity:1;}
-20%{opacity:1;}
-30%{opacity:0;}
-100%{opacity:0;}
+@keyframes glow{
+from{filter:brightness(1);}
+to{filter:brightness(1.5);}
 }
 
+/* INTRO TEXT */
+h1{
+font-family:'Great Vibes', cursive;
+font-size:48px;
+color:#ff4d6d;
+text-shadow:0 0 20px #ff4d6d;
+}
+
+p{
+font-size:16px;
+opacity:0.85;
+}
+
+/* IMAGE */
+img{
+max-width:85%;
+max-height:70%;
+border-radius:20px;
+box-shadow:0 0 40px rgba(255,0,100,0.6);
+animation:zoom 3s ease-in-out;
+}
+
+@keyframes zoom{
+0%{transform:scale(1.2);opacity:0;}
+100%{transform:scale(1);opacity:1;}
+}
+
+/* HEARTS */
 .heart{
 position:absolute;
-color:white;
-animation:float 6s linear infinite;
+color:#ff4d6d;
+font-size:18px;
+animation: float 5s linear infinite;
 }
 
 @keyframes float{
-0%{transform:translateY(100vh);opacity:0;}
-100%{transform:translateY(-100px);opacity:1;}
+from{transform:translateY(100vh);}
+to{transform:translateY(-10vh);}
 }
 
-.msg{
-font-size:20px;
-margin:10px;
+/* PETALS */
+.petal{
+position:absolute;
+font-size:18px;
+animation: fall 6s linear infinite;
+opacity:0.7;
 }
 
-button{
-padding:10px 20px;
-border:none;
-border-radius:20px;
-background:white;
-color:black;
-font-weight:bold;
-cursor:pointer;
+@keyframes fall{
+from{transform:translateY(-10vh) rotate(0deg);}
+to{transform:translateY(110vh) rotate(360deg);}
 }
+
+/* END INFINITY */
+.infinity{
+font-size:80px;
+color:#00ffe5;
+text-shadow:0 0 30px #00ffe5;
+animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.2);}
+100%{transform:scale(1);}
+}
+
+/* SCREENS */
+.screen{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+opacity:0;
+animation:fade 1.5s forwards;
+}
+
+@keyframes fade{to{opacity:1;}}
 </style>
 </head>
 
 <body>
 
-<h1>💖 Brijesh ❤️ Divya 💖</h1>
-<p>11 June 🌹</p>
+<audio id="song" loop>
+<source src="song.mp3">
+</audio>
 
-<div class="slider">
-<img src="photo1.jpg">
-<img src="photo2.jpg">
-<img src="photo3.jpg">
-<img src="photo4.jpg">
-<img src="photo5.jpg">
-<img src="photo6.jpg">
+<!-- INTRO -->
+<div id="intro" class="screen">
+<div class="container">
+<div class="overlay"></div>
+<h1>💖 OUR LOVE STORY 💖</h1>
+<p>“A cinematic reel of forever…”</p>
+</div>
 </div>
 
-<p class="msg">YOU ARE MY EVERYTHING ❤️🧿🌏</p>
-<p class="msg">Bacccchuuuh 💗🫶🏼</p>
+<!-- SLIDES -->
+<div id="slide" class="screen" style="display:none;">
+<img id="img">
+<p id="cap"></p>
+</div>
 
-<button onclick="alert('💖 I LOVE YOU FOREVER 💖')">
-Open Surprise 💌
-</button>
+<!-- END -->
+<div id="end" class="screen" style="display:none;">
+<h1>💞 Forever & Infinity 💞</h1>
+<p>
+Tum meri duniya ho ❤️<br>
+Tum meri rooh ho ♾️
+</p>
+<div class="infinity">∞ 💖 ∞</div>
+</div>
 
 <script>
-for(let i=0;i<60;i++){
-let h=document.createElement("div");
-h.innerHTML="❤";
-h.className="heart";
-h.style.left=Math.random()*100+"%";
-h.style.fontSize=(10+Math.random()*25)+"px";
-h.style.animationDuration=(4+Math.random()*6)+"s";
-document.body.appendChild(h);
+
+let photos=["1.jpg","2.jpg","3.jpg","4.jpg"];
+let captions=[
+"First moment ❤️",
+"Endless memories 💕",
+"My soulmate 💍",
+"Forever & always ♾️"
+];
+
+let i=0;
+
+/* petals */
+for(let p=0;p<25;p++){
+let d=document.createElement("div");
+d.className="petal";
+d.innerHTML="🌹";
+d.style.left=Math.random()*100+"vw";
+d.style.animationDuration=(4+Math.random()*3)+"s";
+document.body.appendChild(d);
 }
+
+/* hearts */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+},200);
+
+/* flow */
+setTimeout(()=>{
+document.getElementById("intro").style.display="none";
+document.getElementById("slide").style.display="flex";
+document.getElementById("song").play();
+
+let s=setInterval(()=>{
+document.getElementById("img").src=photos[i];
+document.getElementById("cap").innerText=captions[i];
+i++;
+
+if(i===photos.length){
+clearInterval(s);
+document.getElementById("slide").style.display="none";
+document.getElementById("end").style.display="flex";
+}
+},2500);
+
+},4000);
+
 </script>
 
 </body>
