@@ -8,37 +8,31 @@
 body{
 margin:0;
 overflow:hidden;
-background:linear-gradient(135deg,#ffdde1,#ee9ca7);
 font-family:cursive;
-text-align:center;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
 color:white;
+text-align:center;
 }
 
 h1{
 font-size:45px;
-margin-top:20px;
+margin-top:15px;
 text-shadow:0 0 20px white;
 }
 
-p{
-font-size:20px;
-}
-
 .slider{
-width:320px;
-height:420px;
-margin:auto;
+width:100%;
+height:70vh;
 position:relative;
 overflow:hidden;
-border-radius:25px;
-box-shadow:0 0 30px white;
+margin-top:10px;
 }
 
 .slider img{
-position:absolute;
 width:100%;
 height:100%;
 object-fit:cover;
+position:absolute;
 opacity:0;
 animation:fade 18s infinite;
 }
@@ -61,7 +55,7 @@ animation:fade 18s infinite;
 .heart{
 position:absolute;
 color:white;
-animation:float linear infinite;
+animation:float 6s linear infinite;
 }
 
 @keyframes float{
@@ -69,32 +63,43 @@ animation:float linear infinite;
 100%{transform:translateY(-100px);opacity:1;}
 }
 
-.music{
-display:none;
+.msg{
+font-size:20px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:20px;
+background:white;
+color:black;
+font-weight:bold;
+cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<audio class="music" autoplay loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
-</audio>
-
 <h1>💖 Brijesh ❤️ Divya 💖</h1>
 <p>11 June 🌹</p>
 
 <div class="slider">
-<img src="file_00000000acd87209b662616f8f114c53">
-<img src="file_000000007c107207bab493f27d76526e">
-<img src="file_0000000034a47207ac4ee65dfe4d7301">
-<img src="file_000000005e98720992f7cda01bc57806">
-<img src="file_0000000008707209a2ab71a8f72dff40">
-<img src="file_0000000034ec7207a7300fb2096aefbb">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
 </div>
 
-<p>YOU ARE MY EVERYTHING ❤️🧿🌏</p>
-<p>Bacccchuuuh 💗🫶🏼</p>
+<p class="msg">YOU ARE MY EVERYTHING ❤️🧿🌏</p>
+<p class="msg">Bacccchuuuh 💗🫶🏼</p>
+
+<button onclick="alert('💖 I LOVE YOU FOREVER 💖')">
+Open Surprise 💌
+</button>
 
 <script>
 for(let i=0;i<60;i++){
